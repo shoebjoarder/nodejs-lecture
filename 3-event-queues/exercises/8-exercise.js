@@ -1,27 +1,24 @@
 const fs = require("fs");
 
 function exercise() {
-  fs.readFile(__filename, () => {
+  setTimeout(() => {
     // * cb-1
-    console.log("File read complete");
+    console.log("Timer executed 1");
+  }, 500);
 
-    process.nextTick(() => {
-      // * cb-2
-      console.log("nextTick inside readFile");
-    });
-
-    setImmediate(() => {
-      // * cb-3
-      console.log("setImmediate inside readFile");
-    });
+  fs.readFile(__filename, () => {
+    // * cb-2
+    console.log("This is readFile 1");
   });
 
   process.nextTick(() => {
-    // * cb-4
-    console.log("Outer nextTick");
+    // * cb-3
+    console.log("This is process.nextTick 1");
+    setTimeout(() => {
+      // * cb-4
+      console.log("Timer executed 2");
+    }, 0);
   });
-
-  console.log("Main script");
 }
 
 exercise();
