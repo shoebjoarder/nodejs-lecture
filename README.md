@@ -33,7 +33,7 @@ Download and install the following software:
 
 - Open a terminal, navigate to specific directory, e.g.,
   ```bash
-  cd event-queues
+  cd 3-event-queues
   ```
 - Run files in the directory, e.g.,
   ```bash
